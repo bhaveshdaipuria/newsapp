@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+.active{
+    pointer-events: none;
+    background-color: #ffffff;
+    color: black;
+    border-radius: 8px;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.loginForm, .registerForm{
+    margin-left: 40%;
+    margin-top: 10%;
+    display: inline-block;
+}
+
+.appHeading{
+    padding-left: 2rem;
+    padding-top: 2rem;
+    font-size: 2.6rem;
+    color: rgb(0, 78, 150);
+    font-weight: bold;
+    font-family: 'Secular One', sans-serif;
+}
+.loginHead, .registerHead{
+    margin-bottom: 3rem;
+}
+.signInHeading, .signUpHeading{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+.registerInputs, .loginInputs{
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-radius: 9px;
+    text-align: center;
+    height: 2.6rem;
+}
+.registerInputs:focus, .loginInputs:focus{
+    border-color: rgb(0, 64, 107);
+    border-width: 0.1rem;
+    border-style: solid;
+}
+.loginSpan, .registerSpan{
+    margin-left: 2.2rem;
+    margin-top: -2rem; 
+    width: 9rem;
+    margin-bottom: 1.4rem;
+    font-weight: bolder;
+    font-size: small;
+}
+.loginSubmit, .registerSubmit{
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(2, 129, 203);
+    width: 15rem;
+    border-radius: 30px;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    background-color: rgb(2, 129, 203);
+    margin-left: 4.7rem;
+    font-weight: bold;
+    margin-bottom: 1.6rem;
+    height: 2.6rem;
+}
+.loginSubmit:hover, .registerSubmit:hover{
+    background-color: rgb(2, 51, 125);
+    border-color: rgb(2, 51, 125);
+}
+.linkDiv_Login, .registerDiv_Login{
+    margin-left: 3.6rem;
+}
+.linkRegister, .linkLogin{
+    margin-left: 2.9rem;
+    color: rgb(2, 129, 203);
+    font-weight: bold;
+}
+.registerContainer, .loginContainer{
+    padding-left: 5rem;
+}
+hr{
+    margin-bottom: 2rem;
+}
