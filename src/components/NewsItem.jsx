@@ -1,7 +1,6 @@
 import React from "react";
 
-function NewsItem({imageURL, newsTitle, newsDescription, newsURL, newsSource, badgeColor}) {
-
+function NewsItem({imageURL, newsTitle, newsDescription, newsURL, newsSource, badgeColor}){
   return (
     <div className="card" style={{width: "18rem"}}>
     <span className={`position-absolute top-0 start-100 translate-middle badge rounded-pill ${badgeColor} z-10`}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {useForm} from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, json, useNavigate } from 'react-router-dom';
 import Alert from './Alert';
 
 function Register() {
@@ -24,24 +24,22 @@ function Register() {
  const[registerStatus, setRegisterStatus] = useState();
  const[confirmAlert, setConfirmAlert] = useState(false);
 
- const onSubmit = (data) =>{
-   const userData = localStorage.getItem(data.email);
-   if(userData){
-      setRegisterStatus(false);
-   }else{
-    if(data.password === data.confirmPass){
-      localStorage.setItem(data.email, JSON.stringify({ 
-        name: data.name, password: data.password 
-    }));
-    setRegisterStatus(true);
+
+const onSubmit = async(data)=>{
+  const response = await fetch('http://localhost:11000/auth/createuser', {
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({name: data.name, email: data.email, password: data.password})
+  })
+  const json = await response.json();
+  if(json.success){
     setTimeout(()=>{
       navigate('/signin');
     }, 2000)
-   }else{
-    setConfirmAlert(true);
-   }
   }
- }
+}
 
 
   return (
@@ -67,8 +65,8 @@ function Register() {
     <input type="password" {...register('password', {required: "Password Required", pattern: {value: /[A-Z]/, message: "Password should contain atleast 1 capital letter"}, minLength: {value: 5, message: "Password should contain atleast 5 characters"}})} placeholder="Set Password" className='registerInputs' disabled={registerStatus}/><br/>
     {errors.password && <div className='registerSpan text-red-900 text-sm'>*{errors.password.message}</div>}
 
-    <input type="password" {...register('confirmPass', {required: "Confirm Your Password"})} placeholder="Confirm Password" className='registerInputs' disabled={registerStatus}/><br/>
-    {errors.confirmPass && <div className='registerSpan text-red-900 text-sm'>*{errors.confirmPass.message}</div>}
+    {/* <input type="password" {...register('confirmPass', {required: "Confirm Your Password"})} placeholder="Confirm Password" className='registerInputs' disabled={registerStatus}/><br/>
+    {errors.confirmPass && <div className='registerSpan text-red-900 text-sm'>*{errors.confirmPass.message}</div>} */}
     </div>
 
     <hr />

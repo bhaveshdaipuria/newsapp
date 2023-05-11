@@ -27,22 +27,44 @@ function Login(){
   document.title = 'News - Login';
   document.body.style.backgroundColor = 'white'; 
 
-  const onSubmit = (data) =>{
-    const userData = JSON.parse(localStorage.getItem(data.email));
-    if (userData) {
-        if (userData.password === data.password){
-          dispatch(SIGN_IN());
-          dispatch(userName(userData.name));
-          setLoginStatus(true);
-          setTimeout(()=>{
-            navigate(`/${userData.name}`);
-          }, 2000)
-        } else {
-          setLoginStatus(false);
-        }
-      }else{
-        alert('This account does not exist. Register first.');
-      }
+  // const onSubmit = (data) =>{
+  //   const userData = JSON.parse(localStorage.getItem(data.email));
+  //   if (userData) {
+  //       if (userData.password === data.password){
+  //         dispatch(SIGN_IN());
+  //         dispatch(userName(userData.name));
+  //         setLoginStatus(true);
+  //         setTimeout(()=>{
+  //           navigate(`/${userData.name}`);
+  //         }, 2000)
+  //       } else {
+  //         setLoginStatus(false);
+  //       }
+  //     }else{
+  //       alert('This account does not exist. Register first.');
+  //     }
+  // }
+
+  const onSubmit = async(data)=>{
+    const response = await fetch('http://localhost:11000/auth/login', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email: data.email, password: data.password})
+    })
+    const json = await response.json();
+    if(json.success){
+      dispatch(SIGN_IN());
+      dispatch(userName(json.user.name));
+      setLoginStatus(true);
+      setTimeout(()=>{
+        navigate(`/${json.user.name}`);
+      }, 2000)
+    }
+    else{
+      setLoginStatus(false);
+    }
   }
 
   return (

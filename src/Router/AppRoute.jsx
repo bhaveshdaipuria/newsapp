@@ -4,12 +4,10 @@ import News from '../components/News';
 import PropTypes from 'prop-types';
 import Login from '../components/Login';
 import ModeSwitch from '../components/ModeSwitch';
-import { useSelector } from 'react-redux';
 import Register from '../components/Register';
 
 function AppRoute() {
 
-  const signInValue = useSelector((state)=> state.signingIn.value);
 
     News.defaultProps = {
         newsCountry: "in",
