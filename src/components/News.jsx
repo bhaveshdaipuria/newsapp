@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from "react";
 import NewsItem from './NewsItem';
 import Loading from "./Loading";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingBar from "react-top-loading-bar";
-import { useDispatch } from "react-redux";
-import { SIGN_OUT } from "../reduxToolkit/signInStatus";
 import { useSelector } from "react-redux";
 
 
 function App({newsCountry, newsCategory, newsNumber, bodyColorProp, modeProp ,hColorProp ,badgeColorProp, modeSwitchProp}){ 
-
-  const dispatch = useDispatch();
+  
   const userNameValue = useSelector((state)=>state.userNameValue.value);
+  const navigate = useNavigate();
 
   const[data, setData] = useState([]);
   const[loading, setLoading] = useState(true)
@@ -95,7 +93,7 @@ function App({newsCountry, newsCategory, newsNumber, bodyColorProp, modeProp ,hC
     </div>
     <form className = "d-flex mr-3" role="search">
         <input className="form-control me-2" type="search" placeholder="Search News" aria-label="Search" onChange={enteredTitle}/>
-        <Link to ='/signin'><button className="btn btn-outline-danger" type="submit" onClick={()=>dispatch(SIGN_OUT())}>Logout</button></Link> 
+        <button className="btn btn-outline-danger" type="submit" onClick={()=>{navigate('/signin')}}>Logout</button>
       </form>
     </nav>
     <h1 className={`text-center text-5xl mt-20 ${hColorProp}`}><b>News For You</b></h1>

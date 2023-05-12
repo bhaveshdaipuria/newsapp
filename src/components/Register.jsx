@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {useForm} from 'react-hook-form';
-import { Link, json, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Alert from './Alert';
 
 function Register() {
@@ -22,7 +22,6 @@ function Register() {
  let navigate = useNavigate();
 
  const[registerStatus, setRegisterStatus] = useState();
- const[confirmAlert, setConfirmAlert] = useState(false);
 
 
 const onSubmit = async(data)=>{
@@ -35,6 +34,7 @@ const onSubmit = async(data)=>{
   })
   const json = await response.json();
   if(json.success){
+    setRegisterStatus(true);
     setTimeout(()=>{
       navigate('/signin');
     }, 2000)
@@ -47,7 +47,6 @@ const onSubmit = async(data)=>{
     {registerStatus === true && <Alert colorStatus='success' loginText='Registration Successful!!!'></Alert>}
     {registerStatus === false && <Alert colorStatus='danger' loginText='This account already exists.'></Alert>}
     <h1 className='appHeading'>NEWS APP</h1>
-    {confirmAlert === true && <Alert colorStatus='danger' loginText='Password could not be confirmed'></Alert>}
     <div className='registerForm'>
     <form onSubmit={handleSubmit(onSubmit)}>
     <div className='registerContainer'>

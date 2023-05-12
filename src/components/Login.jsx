@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from './Alert';
-import { SIGN_IN } from '../reduxToolkit/signInStatus';
 import { userName } from '../reduxToolkit/userStatus';
 
 function Login(){
@@ -27,24 +26,6 @@ function Login(){
   document.title = 'News - Login';
   document.body.style.backgroundColor = 'white'; 
 
-  // const onSubmit = (data) =>{
-  //   const userData = JSON.parse(localStorage.getItem(data.email));
-  //   if (userData) {
-  //       if (userData.password === data.password){
-  //         dispatch(SIGN_IN());
-  //         dispatch(userName(userData.name));
-  //         setLoginStatus(true);
-  //         setTimeout(()=>{
-  //           navigate(`/${userData.name}`);
-  //         }, 2000)
-  //       } else {
-  //         setLoginStatus(false);
-  //       }
-  //     }else{
-  //       alert('This account does not exist. Register first.');
-  //     }
-  // }
-
   const onSubmit = async(data)=>{
     const response = await fetch('http://localhost:11000/auth/login', {
       method: "POST",
@@ -55,16 +36,14 @@ function Login(){
     })
     const json = await response.json();
     if(json.success){
-      dispatch(SIGN_IN());
       dispatch(userName(json.user.name));
       setLoginStatus(true);
       setTimeout(()=>{
         navigate(`/${json.user.name}`);
       }, 2000)
-    }
-    else{
-      setLoginStatus(false);
-    }
+      }else{
+        setLoginStatus(false);
+      }
   }
 
   return (
