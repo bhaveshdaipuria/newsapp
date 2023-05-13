@@ -25,7 +25,8 @@ function Register() {
 
 
 const onSubmit = async(data)=>{
-  const response = await fetch('http://localhost:11000/auth/createuser', {
+  if(data.password === data.confirmPass){
+    const response = await fetch('http://localhost:11000/auth/createuser', {
     method: "POST",
     headers:{
       "Content-Type": "application/json",
@@ -38,6 +39,9 @@ const onSubmit = async(data)=>{
     setTimeout(()=>{
       navigate('/signin');
     }, 2000)
+   }
+  }else{
+    alert('Password Not Confirmed');
   }
 }
 
@@ -64,8 +68,8 @@ const onSubmit = async(data)=>{
     <input type="password" {...register('password', {required: "Password Required", pattern: {value: /[A-Z]/, message: "Password should contain atleast 1 capital letter"}, minLength: {value: 5, message: "Password should contain atleast 5 characters"}})} placeholder="Set Password" className='registerInputs' disabled={registerStatus}/><br/>
     {errors.password && <div className='registerSpan text-red-900 text-sm'>*{errors.password.message}</div>}
 
-    {/* <input type="password" {...register('confirmPass', {required: "Confirm Your Password"})} placeholder="Confirm Password" className='registerInputs' disabled={registerStatus}/><br/>
-    {errors.confirmPass && <div className='registerSpan text-red-900 text-sm'>*{errors.confirmPass.message}</div>} */}
+    <input type="password" {...register('confirmPass', {required: "Confirm Your Password"})} placeholder="Confirm Password" className='registerInputs' disabled={registerStatus}/><br/>
+    {errors.confirmPass && <div className='registerSpan text-red-900 text-sm'>*{errors.confirmPass.message}</div>}
     </div>
 
     <hr />

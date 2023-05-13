@@ -36,7 +36,6 @@ app.post('/auth/createuser', [
     success = true;
     res.json({success, msg: "User created successfully"});
     } catch (error) {
-        console.log(error.message);
         return res.status(500).send('Internet Server Error')
     }
 });
@@ -64,7 +63,6 @@ app.post('/auth/login', [
     success = true;
     res.json({success, user});
     } catch (error) {
-        console.log(error.message);
         return res.status(500).send('Internet Server Error');
     }
 })
