@@ -15,7 +15,7 @@ function Login(){
     document.body.classList.remove('bg-light');
   }
 
-  const{handleSubmit, register, formState: {errors}} = useForm({
+  const{handleSubmit, register, formState: {errors}, reset} = useForm({
    mode: "onChange"
   });
 
@@ -36,20 +36,21 @@ function Login(){
     })
     const json = await response.json();
     if(json.success){
-      dispatch(userName(json.user.name));
       setLoginStatus(true);
+      dispatch(userName(json.user.name));
       setTimeout(()=>{
         navigate(`/${json.user.name}`);
-      }, 2000)
-      }else{
-        setLoginStatus(false);
-      }
+      }, 2000);
+    }else{
+      setLoginStatus(false);
+    }
+      reset();
   }
 
   return (
     <>
     {(loginStatus === true) && <Alert colorStatus='success' loginText='Login Successful!!!'></Alert>}
-    {(loginStatus === false) && <Alert colorStatus='danger' loginText='Wrong Password. Try Again.'></Alert>}
+    {(loginStatus === false) && <Alert colorStatus='danger' loginText='Invalid email or password. Please try to login with correct credentials.'></Alert>}
     <h1 className='appHeading'>NEWS APP</h1>
     <div className='loginForm'>
     <form onSubmit={handleSubmit(onSubmit)}>

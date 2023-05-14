@@ -12,7 +12,7 @@ function Register() {
     document.body.classList.remove('bg-light')
   }
 
- const{handleSubmit, register, formState: {errors}} = useForm({
+ const{handleSubmit, register, formState: {errors}, reset} = useForm({
   mode: "onChange"
  });
 
@@ -43,6 +43,7 @@ const onSubmit = async(data)=>{
   }else{
     alert('Password Not Confirmed');
   }
+  reset();
 }
 
 
