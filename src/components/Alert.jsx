@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Alert({loginText, colorStatus}) {
+function Alert({alertText, colorStatus}) {
   return (
      <div className={`alert alert-${colorStatus} text-center`} role="alert">
-      {loginText}
+      {alertText}
     </div>
   )
 }

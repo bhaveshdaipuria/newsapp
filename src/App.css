@@ -8,7 +8,7 @@
     text-decoration: none;
 }
 
-.loginForm, .registerForm{
+.loginForm, .registerForm, .forgot-pass-container, .verify-otp-container{
     margin-left: 40%;
     margin-top: 10%;
     display: inline-block;
@@ -30,7 +30,12 @@
     font-weight: bold;
     margin-bottom: 0.6rem;
 }
-.registerInputs, .loginInputs{
+.reset-password-heading{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.registerInputs, .loginInputs, .forgot-email-input, .verify-otp-input{
     border-style: solid;
     border-color: grey;
     border-width: 2px;
@@ -40,12 +45,12 @@
     text-align: center;
     height: 2.6rem;
 }
-.registerInputs:focus, .loginInputs:focus{
+.registerInputs:focus, .loginInputs:focus, .forgot-email-input:focus{
     border-color: rgb(0, 64, 107);
     border-width: 0.1rem;
     border-style: solid;
 }
-.loginSpan, .registerSpan{
+.loginSpan, .registerSpan, .forgot-email-span, .verify-otp-span{
     margin-left: 1.2rem;
     margin-top: -2rem; 
     width: 10rem;
@@ -53,7 +58,7 @@
     font-weight: bolder;
     font-size: small;
 }
-.loginSubmit, .registerSubmit{
+.loginSubmit, .registerSubmit, .get-otp-button, .verify-otp-button{
     border-style: solid;
     border-width: 2px;
     border-color: rgb(2, 129, 203);
@@ -68,19 +73,19 @@
     margin-bottom: 1.6rem;
     height: 2.6rem;
 }
-.loginSubmit:hover, .registerSubmit:hover{
+.loginSubmit:hover, .registerSubmit:hover, .get-otp-button:hover, .verify-otp-button:hover{
     background-color: rgb(2, 51, 125);
     border-color: rgb(2, 51, 125);
 }
-.linkDiv_Login, .registerDiv_Login{
+.linkDiv_Login, .registerDiv_Login, .back-to-login-div{
     margin-left: 2.2rem;
 }
-.linkRegister, .linkLogin{
+.linkRegister, .linkLogin, .back-to-login-link{
     margin-left: 2.9rem;
     color: rgb(2, 129, 203);
     font-weight: bold;
 }
-.registerContainer, .loginContainer{
+.registerContainer, .loginContainer, .forgot-pass-form, .verify-otp-form{
     padding-left: 5rem;
 }
 hr{

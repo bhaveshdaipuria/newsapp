@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {useForm} from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from './Alert';
+import FormHeading from './FormHeading';
 
 function Register() {
 
@@ -49,9 +50,9 @@ const onSubmit = async(data)=>{
 
   return (
     <>
-    {registerStatus === true && <Alert colorStatus='success' loginText='Registration Successful!!!'></Alert>}
-    {registerStatus === false && <Alert colorStatus='danger' loginText='This account already exists.'></Alert>}
-    <h1 className='appHeading'>NEWS APP</h1>
+    {registerStatus === true && <Alert colorStatus='success' alertText='Registration Successful!!!'></Alert>}
+    {registerStatus === false && <Alert colorStatus='danger' alertText='This account already exists.'></Alert>}
+    <FormHeading/>
     <div className='registerForm'>
     <form onSubmit={handleSubmit(onSubmit)}>
     <div className='registerContainer'>

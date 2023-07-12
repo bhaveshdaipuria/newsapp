@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import Alert from './Alert';
 import { userName } from '../reduxToolkit/userStatus';
+import FormHeading from './FormHeading';
 
 function Login(){
 
@@ -49,9 +50,9 @@ function Login(){
 
   return (
     <>
-    {(loginStatus === true) && <Alert colorStatus='success' loginText='Login Successful!!!'></Alert>}
-    {(loginStatus === false) && <Alert colorStatus='danger' loginText='Invalid email or password. Please try to login with correct credentials.'></Alert>}
-    <h1 className='appHeading'>NEWS APP</h1>
+    {(loginStatus === true) && <Alert colorStatus='success' alertText='Login Successful!!!'></Alert>}
+    {(loginStatus === false) && <Alert colorStatus='danger' alertText='Invalid email or password. Please try to login with correct credentials.'></Alert>}
+    <FormHeading/>
     <div className='loginForm'>
     <form onSubmit={handleSubmit(onSubmit)}>
     <div className='loginContainer'>
@@ -66,6 +67,7 @@ function Login(){
 
     <input type="password" {...register('password', {required: "Password Required"})} placeholder="Enter Your Password" className='loginInputs' disabled={loginStatus}/><br/>
     {errors.password && <div className='loginSpan text-start'><span className='text-red-900 text-sm'>*{errors.password.message}</span></div>}
+    <Link to='/forgotpass'>Forgot Password?</Link>
     </div>
 
     <hr />

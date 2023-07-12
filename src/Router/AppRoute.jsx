@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import Login from '../components/Login';
 import ModeSwitch from '../components/ModeSwitch';
 import Register from '../components/Register';
+import ForgotPass from '../components/ForgotPass';
+import VerfiyOTP from '../components/VerfiyOTP';
 
 function AppRoute() {
 
@@ -49,6 +51,8 @@ function AppRoute() {
     <Route path='/' element={<Login/>}/>
     <Route path='/signin' element={<Login/>}/>
     <Route path='/signup' element={<Register/>}/>
+    <Route path='/forgotpass' element={<ForgotPass/>}/>
+    <Route path='/verifyotp' element={<VerfiyOTP/>}/>
     <Route path='/:name' element={<News key='general' newsCategory='general' bodyColorProp={bodyColor} hColorProp={hColor} modeProp={mode} badgeColorProp={badgeColor} modeSwitchProp={<ModeSwitch toggleMode={toggleMode} modeTxt={modeTxt}/>}/>}/>
     <Route path='/news/general/:name' element={<News key='general' newsCategory='general' bodyColorProp={bodyColor} hColorProp={hColor} modeProp={mode} badgeColorProp={badgeColor} modeSwitchProp={<ModeSwitch toggleMode={toggleMode} modeTxt={modeTxt}/>}/>}/>
     <Route path='/news/sports/:name' element={<News key='sports' newsCategory='sports' bodyColorProp={bodyColor} hColorProp={hColor} modeProp={mode} badgeColorProp={badgeColor} modeSwitchProp={<ModeSwitch toggleMode={toggleMode} modeTxt={modeTxt}/>}/>}/>

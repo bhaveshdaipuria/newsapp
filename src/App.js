@@ -1,21 +1,17 @@
 import React from "react";
 import './App.css'
+import AllRoutes from './Router/AppRoute';
 
 import {
   BrowserRouter,
-  Routes,
-  Route 
 } from "react-router-dom";
-import AppRoute from "./Router/AppRoute";
 
 function App(){
 
   return (
     <>
     <BrowserRouter>
-    <Routes>
-     <Route path='*' element={<AppRoute/>}></Route>
-    </Routes>
+    <AllRoutes/>
     </BrowserRouter>
     </>
   );
