@@ -7,8 +7,8 @@ const nodemailer = require('nodemailer');
 
 function expireOTP(setEmail){
     setTimeout(async()=>{
-        await OTP.findOneAndDelete(setEmail)
-     }, 300000)
+        await OTP.deleteOne(setEmail)
+     }, 5000)
 }
 
 function sendOTP(senderMail, setPass, clientMail, valueOTP){
