@@ -43,7 +43,7 @@ npm run start
 To start the server side of the application, navigate to the backend directory of the project and run:
 
 ```sh
-npm run start
+node index.js
 ```
 
 ## Technologies Used
