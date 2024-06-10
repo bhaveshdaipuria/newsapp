@@ -13,7 +13,7 @@ The News App provides the latest news by fetching data from the News API. Users 
 
 1. Clone the repository:
    ```sh
-   git clone [https://github.com/bhaveshdaipuria/newsapp.git](https://github.com/bhaveshdaipuria/newsapp.git)
+   git clone https://github.com/bhaveshdaipuria/newsapp.git
    ```
 2. Navigate to the project directory:
 
