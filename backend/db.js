@@ -1,10 +1,20 @@
-const mongoose = require('mongoose');
-const mongoURI = "mongodb://localhost:27017/newsapp";
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-const connectToMongo = ()=>{
-   mongoose.connect(mongoURI).then(()=>{
-    console.log('Now we are connected');
-   }).catch((error)=>{console.error(error)});
-}
+dotenv.config();
+
+const mongoURI = process.env.CONNECTION_URL;
+console.log(mongoURI);
+
+const connectToMongo = () => {
+  mongoose
+    .connect(mongoURI)
+    .then(() => {
+      console.log("Now we are connected");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
 module.exports = connectToMongo;
