@@ -16,5 +16,5 @@ app.use("/forgotpass", require("./router/forgotpass.js"));
 connectToMongo();
 
 app.listen(port, () => {
-  console.log(`Example listening at port https://localhost:${port}`);
+  console.log(`Example listening at port http://localhost:${port}`);
 });
