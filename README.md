@@ -69,6 +69,6 @@ node index.js
 
 **Attention Users:** Please refrain from using any sensitive information stored in `.env` files for purposes other than running this application.
 
-`.env` files often contain sensitive credentials and configuration details necessary for the proper functioning of this application. Exposing or misusing this information can lead to security vulnerabilities and compromise the integrity of your system.
+`.env` files often contain sensitive credentials and configuration details necessary for the proper functioning of this application.
 
-Thank you for your cooperation in maintaining the security of our application.
+Thank you for your cooperation in maintaining the security of this application.

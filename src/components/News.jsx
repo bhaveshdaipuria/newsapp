@@ -34,7 +34,6 @@ function App({
   };
 
   const apiKey = process.env.REACT_APP_API_KEY;
-  // const apiKey = "1f4e2499bf064be994c1029289dd74bc";
 
   const enteredTitle = (e) => {
     setSearchWord(e.target.value.toLowerCase());
